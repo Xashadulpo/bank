@@ -51,7 +51,10 @@
   .sheet-content button {
     @apply focus:ring-0 focus-visible:ring-transparent focus:ring-offset-0 focus-visible:ring-offset-0 focus-visible:outline-none focus-visible:border-none !important;
   }
-
+  .active-link {
+    @apply bg-bank-gradient text-white
+  }
+  
   .text14_padding10 {
     @apply text-14 px-4 py-2.5 font-semibold;
   }
@@ -120,4 +123,14 @@
   .total-balance-amount {
     @apply text-24 lg:text-30 flex-1 font-semibold text-gray-900;
   }
+
+
+  /* SIDEBAR  */
+    .sidebar{
+      @apply w-fit h-screen top-0 left-0 sticky flex flex-col justify-between border-r border-gray-200 bg-white pt-8 text-white max-md:hidden sm:p-4 xl:p-6  2xl:w-[355px]
+    }
+    .sidebar-logo {
+      @apply 2xl:text-26 font-ibm-plex-serif text-[26px] font-bold text-black-1 max-xl:hidden;
+    }
+    
 }
