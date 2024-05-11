@@ -1,14 +1,15 @@
 import Header from '@/components/Header'
+import RightSideBar from '@/components/RightSideBar'
 import TotalBalanceBox from '@/components/TotalBalanceBox'
 import React from 'react'
 
 const Home = () => {
-  const logIn = {firstName:"asif"}
+  const logIn = {firstName:"xashadul",lastName:"po",email:"xashadul@gmail.com"}
   return (
     <section className='w-full no-scrollbar flex flex-row '>
       <div className="w-full">
         {/* header  */}
-        <div className='flex flex-col px-8 gap-8'>
+        <header className='flex flex-col px-8 gap-8'>
           
           <Header
            type="greting"
@@ -21,8 +22,13 @@ const Home = () => {
           totalBank={2}
           totalCurrentBalance={1250.333}
           />
-        </div>
+        </header>
       </div>
+      <RightSideBar
+      user={logIn}
+      transitions={[]}
+      banks={[{currentBalance:1222},{currentBalance:5555}]}
+      />
     </section>
   )
 }

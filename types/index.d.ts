@@ -6,17 +6,17 @@ declare type SearchParamProps = {
 };
 
 declare type Account = {
-  id: string;
-  availableBalance: number;
-  currentBalance: number;
-  officialName: string;
-  mask: string;
-  institutionId: string;
-  name: string;
-  type: string;
-  subtype: string;
-  appwriteItemId: string;
-  shareableId: string;
+  id?: string;
+  availableBalance?: number;
+  currentBalance?: number;
+  officialName?: string;
+  mask?: string;
+  institutionId?: string;
+  name?: string;
+  type?: string;
+  subtype?: string;
+  appwriteItemId?: string;
+  shareableId?: string;
 };
 // ========================================
 
@@ -32,7 +32,14 @@ declare type SignUpParams = {
   email: string;
   password: string;
 };
+// NEEDED 
+declare type logIn={
+  firstName: string;
+  lastName: string;
+  email:string
+}
 
+//PROPS
 declare type HeaderProps = {
   type: string;
   title: string;
@@ -51,5 +58,14 @@ declare type DonartChartProps ={
   accounts:Account[]
 }
 
+declare type RightSideBarProps ={
+  user:logIn,
+  transitions:[],
+  banks:object[]
+}
 
-
+declare type BankCardProps ={
+  account:Account,
+  userName:string,
+showBalance:boolean
+}
