@@ -1,3 +1,4 @@
+import { z } from "zod";
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 
@@ -15,3 +16,12 @@ export function formatAmount(amount: number): string {
 
   return formatter.format(amount);
 }
+
+
+
+
+  //from schema
+export const authFormSchema = z.object({
+    email:z.string().email() ,
+    password:z.string().min(8)
+  });

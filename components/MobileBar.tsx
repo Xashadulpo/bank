@@ -3,9 +3,6 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { sidebarLinks } from "@/constant";
@@ -50,8 +47,8 @@ const MobileBar = () => {
                 <div className="mt-14 ml-4 flex gap-4 flex-col  ">
 
               {sidebarLinks.map((items) => (
-                 <SheetClose asChild>
-                  <Link href={items.route} key={items.label}>
+                 <SheetClose asChild key={items.label}>
+                  <Link href={items.route} >
                   <div
                     className={`flex gap-3 p-4 items-center  rounded-[6px] ${
                       pathName === items.route ? "active-link" : "text-black-2"

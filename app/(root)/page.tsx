@@ -24,11 +24,11 @@ const Home = () => {
           />
         </header>
       </div>
-      <RightSideBar
+    <RightSideBar
       user={logIn}
       transitions={[]}
       banks={[{currentBalance:1222},{currentBalance:5555}]}
-      />
+      /> 
     </section>
   )
 }
