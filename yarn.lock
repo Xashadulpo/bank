@@ -14,6 +14,11 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
+"@fastify/busboy@^2.0.0":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@fastify/busboy/-/busboy-2.1.1.tgz#b9da6a878a371829a0502c9b6c1c143ef6663f4d"
+  integrity sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==
+
 "@gsap/react@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@gsap/react/-/react-2.1.0.tgz#fe65901d64c00d2eea4e3e8b571ae293d781622f"
@@ -944,6 +949,13 @@ next@^13.5.6:
     "@next/swc-win32-ia32-msvc" "13.5.6"
     "@next/swc-win32-x64-msvc" "13.5.6"
 
+node-appwrite@^12.0.1:
+  version "12.0.1"
+  resolved "https://registry.yarnpkg.com/node-appwrite/-/node-appwrite-12.0.1.tgz#a9c950df94b79274f5443c667c96344976c5d37f"
+  integrity sha512-2YHjh6gKe5oyFG4E4bnIz7zPEU456PYE6vCJerqGEgXD5xS5B4ToFFEvtYM6Vk3Q7XSWMqXo2sQJIXkT+MSD7A==
+  dependencies:
+    undici "^5.28.2"
+
 node-releases@^2.0.14:
   version "2.0.14"
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.14.tgz#2ffb053bceb8b2be8495ece1ab6ce600c4461b0b"
@@ -1436,6 +1448,13 @@ undefsafe@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/undefsafe/-/undefsafe-2.0.5.tgz#38733b9327bdcd226db889fb723a6efd162e6e2c"
   integrity sha512-WxONCrssBM8TSPRqN5EmsjVrsv4A8X12J4ArBiiayv3DyyG3ZlIg6yysuuSYdZsVz3TKcTg2fd//Ujd4CHV1iA==
+
+undici@^5.28.2:
+  version "5.28.4"
+  resolved "https://registry.yarnpkg.com/undici/-/undici-5.28.4.tgz#6b280408edb6a1a604a9b20340f45b422e373068"
+  integrity sha512-72RFADWFqKmUb2hmmvNODKL3p9hcB6Gt2DOQMis1SEBaV6a4MH8soBvzg+95CYhCKPFedut2JY9bMfrDl9D23g==
+  dependencies:
+    "@fastify/busboy" "^2.0.0"
 
 update-browserslist-db@^1.0.13:
   version "1.0.13"

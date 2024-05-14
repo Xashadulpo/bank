@@ -10,8 +10,13 @@ import CustomInput from "./CustomInput";
 import { authFormSchema } from "@/lib/utils";
 import { z } from "zod";
 import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { signIn, signUp } from "../lib/actions/user.action";
+import { ID } from "node-appwrite";
+
 
 const AuthForm = ({ type }: { type: string }) => {
+  const router = useRouter();
   // ALL STATE
   const [user, setUser] = useState(null);
   const [isLoading, setLoading] = useState(false);
@@ -24,22 +29,40 @@ const AuthForm = ({ type }: { type: string }) => {
     defaultValues: {
       email: "",
       password: "",
-      // firstName: "",
-      // lastName: "",
-      // address1: "",
-      // state: "",
-      // postalCode: "",
-      // dateOfBirth: "",
-      // ssn: "",
+      firstName: "",
+      lastName: "",
+      address1: "",
+      state: "",
+      postalCode: "",
+      dateOfBirth: "",
+      ssn: "",
     },
   });
 
   //SUBMITE HANDLER
-  function onSubmit(values: z.infer<typeof fromSchema>) {
+  const onSubmit = async (data: z.infer<typeof fromSchema>) => {
     setLoading(true);
-    console.log(values);
-    setLoading(false);
-  }
+    console.log(data);
+    try {
+      if (type === "sign-up") {
+
+
+        const newUser = await signUp(data);
+        setUser(newUser);
+      }
+      if (type === "sign-in") {
+        // const response = await signIn({
+        //   email:data.email,
+        //   password:data.password
+        // })
+        // if(response) router.push("/")
+      }
+    } catch (error) {
+      console.log("submit Error", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <section className="auth-form">

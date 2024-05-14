@@ -28,7 +28,8 @@ const CustomInput = ({controls,type,placeholder,label}:customInputProps) => {
                       {label}
                     </FormLabel>
                     <FormControl className="mt-2">
-                      <Input placeholder={placeholder}
+                      <Input 
+                      placeholder={placeholder}
                       type={type === "password" ? "password" :"text"}
                         className="input-class px-2"
                         {...field}
