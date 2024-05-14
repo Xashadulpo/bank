@@ -14,7 +14,6 @@ import { useRouter } from "next/navigation";
 import { signIn, signUp } from "../lib/actions/user.action";
 import { ID } from "node-appwrite";
 
-
 const AuthForm = ({ type }: { type: string }) => {
   const router = useRouter();
   // ALL STATE
@@ -44,18 +43,21 @@ const AuthForm = ({ type }: { type: string }) => {
     setLoading(true);
     console.log(data);
     try {
+      // SIGN_UP 
       if (type === "sign-up") {
-
-
         const newUser = await signUp(data);
         setUser(newUser);
       }
+      // SIGN_IN
+
       if (type === "sign-in") {
-        // const response = await signIn({
-        //   email:data.email,
-        //   password:data.password
-        // })
-        // if(response) router.push("/")
+        const response = await signIn({
+          email: data.email,
+          password: data.password,
+        });
+        if (response) {
+          router.push("/");
+        }
       }
     } catch (error) {
       console.log("submit Error", error);

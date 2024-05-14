@@ -32,10 +32,14 @@ declare type SignUpParams = {
   email: string;
   password: string;
 };
+
+declare type signInProps ={
+  email:string,password:string
+}
+
 // NEEDED 
 declare type logIn={
-  firstName: string;
-  lastName: string;
+name:string,
   email:string
 }
 

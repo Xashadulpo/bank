@@ -1,10 +1,14 @@
 import Header from '@/components/Header'
 import RightSideBar from '@/components/RightSideBar'
 import TotalBalanceBox from '@/components/TotalBalanceBox'
+import { getLoggedInUser } from '@/lib/actions/user.action'
 import React from 'react'
 
-const Home = () => {
-  const logIn = {firstName:"xashadul",lastName:"po",email:"xashadul@gmail.com"}
+const Home = async() => {
+  const loggedInUser = await getLoggedInUser();
+
+  
+
   return (
     <section className='w-full no-scrollbar flex flex-row '>
       <div className="w-full">
@@ -14,7 +18,7 @@ const Home = () => {
           <Header
            type="greting"
            title="welcome"
-           user={logIn.firstName || "guest"}
+           user={loggedInUser?.name || "guest"}
            subTitle="Access & manage your account and transactions efficiently."/>
 
           <TotalBalanceBox
@@ -25,7 +29,7 @@ const Home = () => {
         </header>
       </div>
     <RightSideBar
-      user={logIn}
+      user={loggedInUser}
       transitions={[]}
       banks={[{currentBalance:1222},{currentBalance:5555}]}
       /> 

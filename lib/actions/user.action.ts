@@ -3,18 +3,25 @@
 import { cookies } from "next/headers";
 import { ID } from "node-appwrite";
 import { createAdminClient, createSessionClient } from "../appwrite";
+import { jsonstring } from "../utils";
 
-export const signIn = async () => {
+export const signIn = async ({ email, password }: signInProps) => {
   try {
+    const { account } = await createAdminClient();
+
+    const response = await account.createEmailPasswordSession(email, password);
+    return jsonstring(response);
   } catch (error) {
     console.log(error);
   }
 };
+//
 
 export async function getLoggedInUser() {
   try {
     const { account } = await createSessionClient();
-    return await account.get();
+    const getDate = await account.get();
+    return jsonstring(getDate);
   } catch (error) {
     return null;
   }
@@ -42,7 +49,7 @@ export const signUp = async (userData: SignUpParams) => {
     });
 
     //   redirect("/account");
-    return JSON.parse(JSON.stringify(newUserAccount));
+    return jsonstring(newUserAccount);
   } catch (error) {
     console.log(error);
   }

@@ -1,7 +1,11 @@
 import AuthForm from '@/components/AuthForm'
-import React from 'react'
+import { getLoggedInUser } from '@/lib/actions/user.action';
+
 
 const SignUp = () => {
+  
+
+
   return (
     <div className='w-full flex items-center justify-center sm:mx-4 '>
       <AuthForm type="sign-up"/>

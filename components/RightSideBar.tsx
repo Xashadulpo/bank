@@ -11,11 +11,11 @@ const RightSideBar = ({ user, transitions, banks }: RightSideBarProps) => {
         <div className="profile px-3 ">
           <div className="relative w-[96px] flex items-center justify-center h-[96px] -top-10 left-4 rounded-full border-4  border-white shadow-lg bg-gray-400">
             <p className="bg-gradient-to-r from-blue-500 text-5xl to-blue-700 capitalize font-extrabold text-transparent bg-clip-text">
-              {user.firstName[0]}
+              {user.name[0]}
             </p>
           </div>
           <h1 className="text-20 font-ibm-plex-serif lg:text-30 font-semibold text-gray-900">
-            {user.firstName} {user.lastName}
+            {user.name}
           </h1>
           <p className="mt-2 font-semibold text-gray-500">{user.email}</p>
         </div>
@@ -35,7 +35,7 @@ const RightSideBar = ({ user, transitions, banks }: RightSideBarProps) => {
          <BankCard 
          
            account={banks[0]}
-           userName={`${user.firstName} ${user.lastName}`}
+           userName={user.name}
            showBalance={false}
          />
        </div>
@@ -43,7 +43,7 @@ const RightSideBar = ({ user, transitions, banks }: RightSideBarProps) => {
          <div className="absolute right-0 top-8 z-0 w-[90%]">
            <BankCard 
              account={banks[1]}
-             userName={`${user.firstName} ${user.lastName}`}
+             userName={user.name}
              showBalance={false}
            />
          </div>
