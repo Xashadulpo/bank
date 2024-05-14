@@ -34,14 +34,27 @@ declare type SignUpParams = {
 };
 
 declare type signInProps ={
-  email:string,password:string
+  email:string,
+  password:string
 }
 
 // NEEDED 
-declare type logIn={
-name:string,
-  email:string
-}
+declare type User = {
+  $id: string;
+  email: string;
+  userId: string;
+  dwollaCustomerUrl: string;
+  dwollaCustomerId: string;
+  firstName: string;
+  lastName: string;
+  name: string;
+  address1: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  dateOfBirth: string;
+  ssn: string;
+};
 
 //PROPS
 declare type HeaderProps = {
@@ -63,7 +76,7 @@ declare type DonartChartProps ={
 }
 
 declare type RightSideBarProps ={
-  user:logIn,
+  user:User,
   transitions:[],
   banks:object[]
 }
