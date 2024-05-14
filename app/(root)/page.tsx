@@ -1,12 +1,12 @@
 import Header from '@/components/Header'
 import RightSideBar from '@/components/RightSideBar'
 import TotalBalanceBox from '@/components/TotalBalanceBox'
-import { getLoggedInUser } from '@/lib/actions/user.action'
-import React from 'react'
+import { getLoggedInUser } from '@/lib/actions/user.action';
+import React, { useState,useEffect } from 'react'
 
-const Home = async() => {
-  const loggedInUser = await getLoggedInUser();
-
+const Home = async () => {
+  const logedIn = await getLoggedInUser();
+ 
   
 
   return (
@@ -18,7 +18,7 @@ const Home = async() => {
           <Header
            type="greting"
            title="welcome"
-           user={loggedInUser?.name || "guest"}
+           user={logedIn?.name || "guest"}
            subTitle="Access & manage your account and transactions efficiently."/>
 
           <TotalBalanceBox
@@ -29,7 +29,7 @@ const Home = async() => {
         </header>
       </div>
     <RightSideBar
-      user={loggedInUser}
+      user={logedIn}
       transitions={[]}
       banks={[{currentBalance:1222},{currentBalance:5555}]}
       /> 

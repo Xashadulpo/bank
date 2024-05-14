@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { getLoggedInUser } from "./actions/user.action";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -23,3 +24,9 @@ export const authFormSchema = (type: string) => z.object({
 
 
 export const jsonstring = (input:any) =>JSON.parse(JSON.stringify(input));
+
+export const getLogged = async()=>{
+  const loginData = await getLoggedInUser();
+  return loginData
+}
+

@@ -154,12 +154,14 @@ const AuthForm = ({ type }: { type: string }) => {
               )}
 
               <CustomInput
+              id={"1"}
                 controls={form.control}
                 type="email"
                 placeholder="Enter Your Email"
                 label="Email"
               />
               <CustomInput
+              id={"2"}
                 controls={form.control}
                 type="password"
                 placeholder="Enter Your Password"
