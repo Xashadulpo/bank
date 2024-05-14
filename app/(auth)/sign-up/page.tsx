@@ -7,7 +7,7 @@ const SignUp = () => {
 
 
   return (
-    <div className='w-full flex items-center justify-center sm:mx-4 '>
+    <div className='w-full flex items-center justify-center sm:mx-3 '>
       <AuthForm type="sign-up"/>
     </div>
   )
