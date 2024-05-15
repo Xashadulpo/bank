@@ -5,9 +5,6 @@ import { z } from "zod";
 import { FormControl, FormField, FormLabel, FormMessage } from "./ui/form";
 import { Input } from "./ui/input";
 
-const generateUniqueId = () =>
-  `input-${Math.random().toString(36).substring(7)}`;
-
 const fromSchema = authFormSchema("sign-up");
 
 //TYPES
@@ -25,7 +22,7 @@ const CustomInput = ({
   label,
   id,
 }: customInputProps) => {
-  const uniqueId = id || generateUniqueId();
+ 
 
   return (
     <>
@@ -37,7 +34,7 @@ const CustomInput = ({
             <FormLabel>{label}</FormLabel>
             <FormControl className="mt-2">
               <Input
-                id={uniqueId}
+                id={id}
                 placeholder={placeholder}
                 type={type === "password" ? "password" : "text"}
                 className="input-class px-2"

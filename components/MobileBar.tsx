@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   Sheet,
   SheetClose,
@@ -9,8 +9,9 @@ import { sidebarLinks } from "@/constant";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Footer from "./Footer";
 
-const MobileBar = () => {
+const MobileBar = ({ user, type }: SideBarProps) => {
   const pathName = usePathname();
   return (
     <section className="max-w-[246px]">
@@ -42,39 +43,44 @@ const MobileBar = () => {
             </h1>
           </Link>
           {/* MOBILE NAV INTIGRATION  */}
-     
-            <SheetClose asChild>
-                <div className="mt-14 ml-4 flex gap-4 flex-col  ">
 
-              {sidebarLinks.map((items) => (
-                 <SheetClose asChild key={items.label}>
-                  <Link href={items.route} >
-                  <div
-                    className={`flex gap-3 p-4 items-center  rounded-[6px] ${
-                      pathName === items.route ? "active-link" : "text-black-2"
-                    }`}
-                  >
-                    <Image
-                      src={items.imgURL}
-                      alt={items.imgURL}
-                      width={24}
-                      height={24}
-                      className={
-                        pathName === items.route
-                          ? "brightness-[3] invert-0"
-                          : ""
-                      }
-                    />
-                    <p className="text-16 font-semibold md:hidden">
-                      {items.label}
-                    </p>
-                  </div>
-                </Link>
-                </SheetClose>
-              ))}
+          <SheetClose asChild>
+            <div className="mt-14 ml-4 h-full flex  flex-col justify-between ">
+              <div className="w-full flex flex-col gap-3">
+                {sidebarLinks.map((items) => (
+                  <SheetClose asChild key={items.label}>
+                    <Link href={items.route}>
+                      <div
+                        className={`flex gap-3 p-4 items-center  rounded-[6px] ${
+                          pathName === items.route
+                            ? "active-link"
+                            : "text-black-2"
+                        }`}
+                      >
+                        <Image
+                          src={items.imgURL}
+                          alt={items.imgURL}
+                          width={24}
+                          height={24}
+                          className={
+                            pathName === items.route
+                              ? "brightness-[3] invert-0"
+                              : ""
+                          }
+                        />
+                        <p className="text-16 font-semibold md:hidden">
+                          {items.label}
+                        </p>
+                      </div>
+                    </Link>
+                  </SheetClose>
+                ))}
               </div>
-            </SheetClose>
-         
+              <div className="mb-32">
+                <Footer user={user} type={type} />
+              </div>
+            </div>
+          </SheetClose>
         </SheetContent>
       </Sheet>
     </section>

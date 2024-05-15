@@ -86,3 +86,6 @@ declare type BankCardProps ={
   userName:string,
 showBalance:boolean
 }
+ declare type SideBarProps={
+  user:User,type:string
+ }

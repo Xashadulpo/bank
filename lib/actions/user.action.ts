@@ -15,17 +15,6 @@ export const signIn = async ({ email, password }: signInProps) => {
     console.log(error);
   }
 };
-//
-
-export async function getLoggedInUser() {
-  try {
-    const { account } = await createSessionClient();
-    const getDate = await account.get();
-    return jsonstring(getDate);
-  } catch (error) {
-    return null;
-  }
-}
 
 export const signUp = async (userData: SignUpParams) => {
   const { email, password, firstName, lastName } = userData;
@@ -54,3 +43,25 @@ export const signUp = async (userData: SignUpParams) => {
     console.log(error);
   }
 };
+
+  export async function getLoggedInUser() {
+    try {
+      const { account } = await createSessionClient();
+      const getDate = await account.get();
+      return jsonstring(getDate);
+    } catch (error) {
+      return null;
+    }
+  }
+
+
+  export async function LogOutData() {
+    try {
+      const { account } = await createSessionClient();
+      const getDate = await account.get();
+      return jsonstring(getDate);
+    } catch (error) {
+      return null;
+    }
+  }
+

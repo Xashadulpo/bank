@@ -1,10 +1,13 @@
 "use client";
+
 import { sidebarLinks } from "@/constant";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Footer from "./Footer";
 
-const SideBar = () => {
+const SideBar = ({user,type}:SideBarProps) => {
+ 
   const pathName = usePathname();
   return (
     <div className="sidebar">
@@ -33,6 +36,9 @@ const SideBar = () => {
           </Link>
         ))}
       </div>
+          {/* FOOTER  */}
+          <Footer user={user} type={type}/>
+
     </div>
   );
 };
