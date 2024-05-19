@@ -1,13 +1,16 @@
+
+
 import Header from '@/components/Header'
 import RightSideBar from '@/components/RightSideBar'
 import TotalBalanceBox from '@/components/TotalBalanceBox'
 import { getLoggedInUser } from '@/lib/actions/user.action';
-import React, { useState,useEffect } from 'react'
+import { redirect } from 'next/navigation';
+
 
 const Home = async () => {
   const logedIn = await getLoggedInUser();
- 
-  
+
+  if(!logedIn) redirect("/sign-in")
 
   return (
     <section className='w-full no-scrollbar flex flex-row '>

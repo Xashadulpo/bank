@@ -1,7 +1,16 @@
+"use client";
+import { LogOutData } from "@/lib/actions/user.action";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 const Footer = ({ user, type }: SideBarProps) => {
   console.log(user, "user");
+  const router = useRouter();
 
+  const handleLogOut = async () => {
+    await LogOutData();
+    router.push("/sign-in");
+  };
+  
   return (
     <footer className="footer">
       {user && (
@@ -27,7 +36,7 @@ const Footer = ({ user, type }: SideBarProps) => {
             </p>
           </div>
 
-          <div className="footer_image">
+          <div className="footer_image" onClick={handleLogOut}>
             <Image src="/icons/logout.svg" width={30} height={30} alt="jsm" />
           </div>
         </>

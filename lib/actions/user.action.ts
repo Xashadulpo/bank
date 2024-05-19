@@ -10,10 +10,28 @@ export const signIn = async ({ email, password }: signInProps) => {
     const { account } = await createAdminClient();
 
     const response = await account.createEmailPasswordSession(email, password);
-    return jsonstring(response);
+
+    // Debug: Log the response to check if the session is created correctly
+    console.log("Sign-in response:", response);
+
+    // Check if the session is successfully created
+    if (response && response.secret) {
+      // Set the session cookie
+      cookies().set("appWrite-session", response.secret, {
+        path: "/",
+        httpOnly: true,
+        sameSite: "strict",
+        secure: true,
+      });
+      return jsonstring(response);
+    } else {
+      throw new Error("Failed to create session. Please check your credentials.");
+    }
   } catch (error) {
-    console.log(error);
+    console.error("Sign-in error:", error);
+    throw new Error("Failed to sign in. Please check your credentials.");
   }
+  
 };
 
 export const signUp = async (userData: SignUpParams) => {
@@ -44,24 +62,22 @@ export const signUp = async (userData: SignUpParams) => {
   }
 };
 
-  export async function getLoggedInUser() {
-    try {
-      const { account } = await createSessionClient();
-      const getDate = await account.get();
-      return jsonstring(getDate);
-    } catch (error) {
-      return null;
-    }
+export async function getLoggedInUser() {
+  try {
+    const { account } = await createSessionClient();
+    const getDate = await account.get();
+    return jsonstring(getDate);
+  } catch (error) {
+    return null;
   }
+}
 
-
-  export async function LogOutData() {
-    try {
-      const { account } = await createSessionClient();
-      const getDate = await account.get();
-      return jsonstring(getDate);
-    } catch (error) {
-      return null;
-    }
+export async function LogOutData() {
+  try {
+    const { account } = await createSessionClient();
+    cookies().delete("appWrite-session");
+    await account.deleteSession("current");
+  } catch (error) {
+    return null;
   }
-
+}
