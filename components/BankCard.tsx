@@ -13,7 +13,7 @@ const BankCard = ({ account, userName, showBalance = true }: BankCardProps) => {
             </p>
           </div>
           <article className="flex flex-col gap-2">
-            <div className="flex justify-between">
+            <div className="flex justify-between gap-1">
               <h1 className="text-12 font-semibold text-white">{userName}</h1>
               <h2 className="text-12 font-semibold text-white">●● / ●●</h2>
             </div>
